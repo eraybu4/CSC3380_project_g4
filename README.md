@@ -29,7 +29,7 @@ Once accessible, open the HTML files directly in a browser of choice.
 Upon further development, the exact location of said HTML files will be given in an updated version of this file.
 Until then, provided below is an image of one of the two prototypes. 
 
-<img width="390" height="251.5" alt="Reward Page Prototype" src="https://github.com/eraybu4/CSC3380_project_g4/refs/heads/Njeri_Dukes/SitePrototype1.png" />
+<img width="390" height="251.5" alt="Reward Page Prototype" src="https://github.com/eraybu4/CSC3380_project_g4/blob/a185bb9e8b401769d99a04152f5a862ff544e0db/SitePrototype1.png" />
 
 ***Backend Progress:***
 
