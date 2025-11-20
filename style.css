@@ -1,88 +1,103 @@
+
+
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: url('map-baton-rouge.png') no-repeat center center fixed;
-  background-size: cover;
-  position: relative;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: #fff;
+  color: #111;
+  display: grid;
+  grid-template-columns: 220px 1fr; 
 }
 
-body::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: rgba(70, 29, 124, 0.85); /* LSU Purple overlay */
-  z-index: 0;
+/* Sidebar */
+.sidebar {
+  background: #ffd300;                
+  border-right: 1px solid #e1b800;
+  padding: 14px 12px;
+  position: sticky; top: 0; height: 100dvh; 
 }
 
-.startup-screen {
-  position: relative;
-  z-index: 1;
-  background-color: rgba(255, 255, 255, 0.95);
-  padding: 2rem;
-  border-radius: 15px;
-  text-align: center;
-  box-shadow: 0 0 20px rgba(0,0,0,0.3);
-  width: 320px;
+.sidebar h1 {
+  margin: 6px 0 12px;
+  font-size: 20px;
+  font-weight: 800;
 }
 
-.welcome {
-  font-size: 1.2rem;
-  color: #461d7c; /* LSU Purple */
-  margin-bottom: 1rem;
-  font-weight: bold;
-}
+.nav { display: grid; gap: 12px; }
 
-.title {
-  font-size: 2.5rem;
-  color: #fdd023; /* LSU Gold */
-  margin-bottom: 1.5rem;
-  font-weight: 900;
-}
-
-#startButton {
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  background-color: #fdd023; /* LSU Gold */
-  color: #461d7c;
-  border: none;
+.nav-btn {
+  width: 100%;
+  background: #fff;
+  color: #111;
+  border: 1px solid #e5e5e5;
   border-radius: 8px;
+  padding: 10px 12px;
+  text-align: left;
+  font-weight: 600;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.05);
   cursor: pointer;
-  font-weight: bold;
+}
+.nav-btn:focus,
+.nav-btn:hover {
+  outline: none;
+  border-color: #d6d6d6;
+  background: #fafafa;
 }
 
-#startButton:hover {
-  background-color: #e6b800;
+/* Main column */
+.main {
+  padding: 60px 18px;
 }
 
-.dropdown {
-  margin-top: 1.5rem;
+
+.list {
+  max-width: 600px;    
 }
 
-.dropdown ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+/* Reward card */
+.card {
+  background: #fff;
+  border: 2px solid #f1c40f;         
+  border-radius: 12px;
+  padding: 16px;
+  margin: 12px 0;                      
+  box-shadow: 0 2px 0 rgba(0,0,0,0.04);
 }
 
-.dropdown li {
-  background-color: #f0f4f8;
-  margin: 0.5rem 0;
-  padding: 0.7rem;
-  border-radius: 5px;
+.card h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.card p {
+  margin: 0 0 12px;
+  font-size: 13px;
+  color: #555;
+}
+
+/* Stars button inside the card */
+.star-btn {
+  display: inline-block;
+  background: #ffd300;               
+  color: #111;
+  border: 1px solid #e1b800;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 12px;
+  padding: 8px 12px;
   cursor: pointer;
-  transition: background-color 0.3s;
-  color: #333;
-  font-weight: 500;
 }
+.star-btn:hover { filter: brightness(0.95); }
+.star-btn:active { transform: translateY(1px); }
 
-.dropdown li:hover {
-  background-color: #e0e0e0;
-}
-
-.hidden {
-  display: none;
+/* Scrimba hack */
+@media (max-width: 720px) {
+  body { grid-template-columns: 1fr; }
+  .sidebar { position: relative; height: auto; }
+  .main { padding: 12px; }
+  .list { max-width: 100%; }
 }

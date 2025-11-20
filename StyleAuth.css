@@ -1,0 +1,20 @@
+
+$primary-color:#FFFF00;
+$primry-hover-color:#FFFFED;
+$secondary-color:#800080;
+$secondary-hover-color:#E7CAFF;
+$background-color:#fof8ff;
+$container-bg-color:#FFFFFF;
+$text-color:#333;
+$subtext-color:#666;
+$call: 10px;
+
+body {
+    background-color: $background-color;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, sans-serif;
+    color: $text-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
