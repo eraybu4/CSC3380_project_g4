@@ -1,0 +1,218 @@
+<!doctype html>
+<head>
+
+
+<html>
+<style>
+	.box1{
+	   width: 900px;
+	   height: 200px;
+	   background: linear-gradient(to right, gold, rgb(255,38,0));
+	   border-radius: 50px;
+	   display: flex;
+	   justify-content: center;
+	   align-items: center;
+	   padding: 5px;
+	   font-family: Lucida Console;
+	   text-align: left;
+	}
+
+	/* BELOW THIS POINT IS EVERYTHING IN BOX1 */
+
+	.box1_inner{
+	   width: 100%;
+	   height: 100%;
+	   background: linear-gradient(to top, rgb(59, 66, 94), darkslateblue);
+	   border-radius: 50px;
+	   display: flex;
+	   justify-content: flex-start;
+	   align-items: center;
+	   margin-right: 5px;
+	   padding-right:5px;
+	   position: relative;
+
+	}
+
+	.star{
+		width: 40px;
+		height: 40px;
+		transition: filter 0.5s ease;
+		position: relative;
+	}
+
+	.star:hover{
+		filter: brightness(2);
+	}
+
+	#star1{ top: -50px; left: 20px; }
+	#star2{ top: -50px; left: 50px; }
+	#star3{ top:   0px; left: 100px; width: 30px; height: 30px; }
+	#star4{ top: -60px; left: 150px; }
+	#star5{ top:  20px; left: 200px; }
+	#star6{ top:  30px; left: 300px; }
+	#star7{ top: -50px; left: 350px; width: 30px; height: 30px; }
+	#star8{ top: -50px; left: 400px; }
+
+	
+	/*ABOVE THIS POINT IS EVERYTHING IN BOX1 (imma finish the other two constellations later)*/
+
+
+	.box2{
+	   width: 1200px;
+	   height: 200px;
+	   background: linear-gradient(to right, orange, rgb(255,38,0));
+	   border-radius: 50px;
+	   display: flex;
+	   justify-content: center;
+	   align-items: center;
+	   padding: 5px;
+	   font-family: Lucida Console;
+	   text-align: left;
+	}
+
+	.box2_inner{
+	   width: 100%;
+	   height: 100%;
+	   background: linear-gradient(to top, rgb(59, 66, 94), darkslateblue);
+	   border-radius: 50px;
+	   display: flex;
+	   justify-content: center;
+	   align-items: center;
+	   margin-left: 20px;
+	}
+
+	.box3{
+	   width: 900px;
+	   height: 200px;
+	   background: linear-gradient(to right, rgb(255, 104, 33), rgb(255,38,0));
+	   border-radius: 50px;
+	   display: flex;
+	   justify-content: center;
+	   align-items: center;
+	   padding: 5px; 
+	   font-family: Lucida Console;
+	   text-align: left;
+	   
+	}
+	
+	.box3_inner{
+	   width: 100%;
+	   height: 100%;
+	   background: linear-gradient(to top, rgb(59, 66, 94), darkslateblue);
+	   border-radius: 50px;
+	   display: flex;
+	   justify-content: center;
+	   align-items: center;
+	   margin-left: 5px;
+	   text-align: center;
+
+	}
+
+.constellation-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+ 
+}
+.constellation-lines line {
+  stroke: rgba(255, 255, 255, 0.308);
+  stroke-width: 2;
+}
+
+
+</style>
+
+
+</head>
+
+<body>
+
+	<h1>Your button successfully took you to the stars page!</h1>
+	<p>This page is in connection with the Rewards page. Waiting to add backend logic to 
+		make sure that when user has so many stars, you can see the stars on this page light up to track progress. 
+
+	<div class="box1">
+		Constellation Box 1
+	  <div class="box1_inner">
+
+			<svg id="constellationSvg" class="constellation-lines" preserveAspectRatio="none"></svg>
+
+			<img id="star1" class="star" src="StarNotActivated.png">
+			<img id="star2" class="star" src="StarNotActivated.png">
+			<img id="star3" class="star" src="StarNotActivated.png">
+			<img id="star4" class="star" src="StarNotActivated.png">
+			<img id="star5" class="star" src="StarNotActivated.png">
+			<img id="star6" class="star" src="StarNotActivated.png">
+			<img id="star7" class="star" src="StarNotActivated.png">
+			<img id="star8" class="star" src="StarNotActivated.png">
+	    </div> 		
+
+	</div>	    
+  
+	<div class="box2">
+		Constellation Box 2
+	  <div class="box2_inner">Interactive Constellation 2 Image
+
+	</div>
+
+	<div class="box3">
+		Constellation Box 3
+	  <div class="box3_inner">Interactive Constellation 3 Image
+
+	</div>
+
+<script>
+
+  const svg = document.getElementById('constellationSvg');
+
+  function createLines() {
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    const stars = Array.from(document.querySelectorAll('.star'));
+    const needed = stars.length - 1
+    for (let i = 0; i < needed; i++) {
+      const ln = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      ln.setAttribute('id', 'lineNumber' + (i+1));
+      svg.appendChild(ln);
+    }
+  }
+
+  function centerOf(element) {
+    const svgRect = svg.getBoundingClientRect();
+    const r = element.getBoundingClientRect();
+    return {
+      x: (r.left - svgRect.left) + r.width / 2,
+      y: (r.top  - svgRect.top)  + r.height / 2
+    };
+  }
+
+  function updateLines() {
+    const stars = Array.from(document.querySelectorAll('.star'));
+    const lines = Array.from(svg.querySelectorAll('line'));
+    for (let i = 0; i < lines.length; i++) {
+      const a = centerOf(stars[i]);
+      const b = centerOf(stars[i+1]);
+      const ln = lines[i];
+      ln.setAttribute('x1', a.x);
+      ln.setAttribute('y1', a.y);
+      ln.setAttribute('x2', b.x);
+      ln.setAttribute('y2', b.y);
+    }
+  }
+
+  function connectStars() {
+    createLines();
+    updateLines();
+  }
+
+  window.addEventListener('load', connectStars);
+  
+
+</script>
+
+
+
+
+</body>
+</html> 
