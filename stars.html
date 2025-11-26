@@ -38,6 +38,7 @@
 		height: 40px;
 		transition: filter 0.5s ease;
 		position: relative;
+		z-index: 2;
 	}
 
 	.star:hover{
@@ -52,6 +53,11 @@
 	#star6{ top:  30px; left: 300px; }
 	#star7{ top: -50px; left: 350px; width: 30px; height: 30px; }
 	#star8{ top: -50px; left: 400px; }
+	#star9{ top: -30px; left:-100px; }
+   #star10{ top: -70px; left:-50px;  }
+   #star11{ top: -20px; left:  0px;  }
+   #star12{ top:  70px; left:-80px;  }
+   #star13{ top:  70px; left:-250px; }
 
 	
 	/*ABOVE THIS POINT IS EVERYTHING IN BOX1 (imma finish the other two constellations later)*/
@@ -114,6 +120,7 @@
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 1;
  
 }
 .constellation-lines line {
@@ -137,7 +144,7 @@
 		Constellation Box 1
 	  <div class="box1_inner">
 
-			<svg id="constellationSvg" class="constellation-lines" preserveAspectRatio="none"></svg>
+			<svg id="constellationSvg1" class="constellation-lines" preserveAspectRatio="none"></svg>
 
 			<img id="star1" class="star" src="StarNotActivated.png">
 			<img id="star2" class="star" src="StarNotActivated.png">
@@ -153,65 +160,79 @@
   
 	<div class="box2">
 		Constellation Box 2
-	  <div class="box2_inner">Interactive Constellation 2 Image
+	  <div class="box2_inner">
 
-	</div>
+			<svg id="constellationSvg2" class="constellation-lines" preserveAspectRatio="none"></svg>
+
+			<img id="star9" class="star"  src="StarNotActivated.png">
+			<img id="star10" class="star" src="StarNotActivated.png">
+			<img id="star11" class="star" src="StarNotActivated.png">
+			<img id="star12" class="star" src="StarNotActivated.png">
+			<img id="star13" class="star" src="StarNotActivated.png">
+
+	    </div>
+	
 
 	<div class="box3">
 		Constellation Box 3
 	  <div class="box3_inner">Interactive Constellation 3 Image
 
+	  </div>
 	</div>
 
 <script>
 
-  const svg = document.getElementById('constellationSvg');
+  
+	const boxes = document.querySelectorAll('.box1_inner, .box2_inner');
 
-  function createLines() {
-    while (svg.firstChild) svg.removeChild(svg.firstChild);
-    const stars = Array.from(document.querySelectorAll('.star'));
-    const needed = stars.length - 1
-    for (let i = 0; i < needed; i++) {
-      const ln = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-      ln.setAttribute('id', 'lineNumber' + (i+1));
-      svg.appendChild(ln);
-    }
-  }
+	boxes.forEach(function(box){
+		
+		const svg = box.querySelector('svg');
+		const stars = Array.from(box.querySelectorAll('.star'));
 
-  function centerOf(element) {
-    const svgRect = svg.getBoundingClientRect();
-    const r = element.getBoundingClientRect();
-    return {
-      x: (r.left - svgRect.left) + r.width / 2,
-      y: (r.top  - svgRect.top)  + r.height / 2
-    };
-  }
 
-  function updateLines() {
-    const stars = Array.from(document.querySelectorAll('.star'));
-    const lines = Array.from(svg.querySelectorAll('line'));
-    for (let i = 0; i < lines.length; i++) {
-      const a = centerOf(stars[i]);
-      const b = centerOf(stars[i+1]);
-      const ln = lines[i];
-      ln.setAttribute('x1', a.x);
-      ln.setAttribute('y1', a.y);
-      ln.setAttribute('x2', b.x);
-      ln.setAttribute('y2', b.y);
-    }
-  }
+		 function createLines() {
+			while (svg.firstChild) svg.removeChild(svg.firstChild);
+			const needed = stars.length - 1
 
-  function connectStars() {
-    createLines();
-    updateLines();
-  }
+			for (let i = 0; i < needed; i++) {
+			const ln = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+			ln.setAttribute('id', 'lineNumber' + (i+1));
+			svg.appendChild(ln);
+    		}
+  		 }
 
-  window.addEventListener('load', connectStars);
+		 function centerOf(element) {
+			const svgRect = svg.getBoundingClientRect();
+			const r = element.getBoundingClientRect();
+			return {
+			x: (r.left - svgRect.left) + r.width / 2,
+			y: (r.top  - svgRect.top)  + r.height / 2
+			};
+		 }
+
+		 function updateLines() {
+			const lines = Array.from(svg.querySelectorAll('line'));
+			for (let i = 0; i < lines.length; i++) {
+			const a = centerOf(stars[i]);
+			const b = centerOf(stars[i+1]);
+			const ln = lines[i];
+			ln.setAttribute('x1', a.x);
+			ln.setAttribute('y1', a.y);
+			ln.setAttribute('x2', b.x);
+			ln.setAttribute('y2', b.y);
+    		}
+  		 }
+
+			createLines();
+			updateLines();
+
+	});
+
+	window.addEventListener('load', connectStars);
   
 
 </script>
-
-
 
 
 </body>
