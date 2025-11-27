@@ -17,7 +17,6 @@
 	   text-align: left;
 	}
 
-	/* BELOW THIS POINT IS EVERYTHING IN BOX1 */
 
 	.box1_inner{
 	   width: 100%;
@@ -58,9 +57,11 @@
    #star11{ top: -20px; left:  0px;  }
    #star12{ top:  70px; left:-80px;  }
    #star13{ top:  70px; left:-250px; }
+   #star14{ top:  70px; left: -40px; }
+   #star15{ top:   0px; left:   0px; }
+   #star16{ top: -20px; left:  20px; }
+   #star17{ top:   0px; left:  20px; }
 
-	
-	/*ABOVE THIS POINT IS EVERYTHING IN BOX1 (imma finish the other two constellations later)*/
 
 
 	.box2{
@@ -111,6 +112,7 @@
 	   align-items: center;
 	   margin-left: 5px;
 	   text-align: center;
+	   position: relative;
 
 	}
 
@@ -175,7 +177,14 @@
 
 	<div class="box3">
 		Constellation Box 3
-	  <div class="box3_inner">Interactive Constellation 3 Image
+	  <div class="box3_inner">
+
+			<svg id="constellationSvg3" class="constellation-lines" preserveAspectRatio="none"></svg>
+
+			<img id="star14" class="star" src="StarNotActivated.png">
+			<img id="star15" class="star" src="StarNotActivated.png">
+			<img id="star16" class="star" src="StarNotActivated.png">
+			<img id="star17" class="star" src="StarNotActivated.png">
 
 	  </div>
 	</div>
@@ -183,7 +192,7 @@
 <script>
 
   
-	const boxes = document.querySelectorAll('.box1_inner, .box2_inner');
+	const boxes = document.querySelectorAll('.box1_inner, .box2_inner, .box3_inner');
 
 	boxes.forEach(function(box){
 		
@@ -229,7 +238,7 @@
 
 	});
 
-	window.addEventListener('load', connectStars);
+	
   
 
 </script>
