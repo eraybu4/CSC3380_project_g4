@@ -6,7 +6,7 @@
     <form id="auth-form" action="{{url_for("login")}}" method="post">
         <input type="text" name="username" placeholder="username" class="input-field">
         <input type="text" name="password" placeholder="password" class="input-field">
-        <input type="submit" value="login" class="button-login" onclick="setActionForm('Login')">
+        <input type="submit" value="login" class="button-login" onclick="setActionForm('login')">
         <input type="button" value="Register" class="button-login" onclick="setActionForm('register')">
     </form>    
 </div>
@@ -16,8 +16,8 @@
 
     function setActionForm(form) {
         let form = document.getElementById("auth-form");
-        if (action == 'Login') {
-            form.action = "{{url_for('Login')}}";
+        if (action == 'login') {
+            form.action = "{{url_for('login')}}";
             form.method = 'post';
             form.submit();
         } else if (action == "register") {
