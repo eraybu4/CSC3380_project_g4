@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Rewards – Redeem Page</title>
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
 </head>
 <body>
   <!-- LEFT SIDEBAR -->
@@ -13,10 +13,10 @@
     <h1>Rewards</h1>
 
     <nav class="nav">
-      <button class="nav-btn">Stars</button>
+      <button class="nav-btn" onclick="window.location.href='stars'">Stars</button>
       <button class="nav-btn">Missions</button>
       <button class="nav-btn nav-btn-active">Rewards</button>
-      <button class="nav-btn">Profile</button>
+      <button class="nav-btn" onclick="window.location.href='logout'">Logout</button>
     </nav>
   </aside>
 
@@ -99,6 +99,6 @@
     </section>
   </main>
 
-  <script src="app.js"></script>
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
 </html>

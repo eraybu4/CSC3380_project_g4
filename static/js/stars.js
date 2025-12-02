@@ -8,10 +8,10 @@ for (let i = 1; i <= 17; i++) {
 
     const starElement = document.getElementById("star" + i);
     if (starTotal >= i * 5) {
-        starElement.src = "StarActivated.png";
+        starElement.src = "img/StarActivated.png";
 
     } else {
-        starElement.src = "StarNotActivated.png"
+        starElement.src = "img/StarNotActivated.png"
     }
 }
 

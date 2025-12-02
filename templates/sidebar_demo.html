@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sidebar Demo</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
 </head>
 <body>
   <!-- Sidebar view-->
@@ -12,7 +12,7 @@
     <h1>Home</h1>
 
     <nav class="nav">
-     <button class="nav-btn" onclick="window.location.href='stars.html'">Stars</button>
+      <button class="nav-btn" onclick="window.location.href='stars.html'">Stars</button>
       <button class="nav-btn">Missions</button>
       <button class="nav-btn">Rewards</button>
     </nav>

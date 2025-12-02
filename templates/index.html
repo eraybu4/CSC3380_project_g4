@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Geaux Quest</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="startup-screen">
+    <h3 class="welcome">Welcome to Baton Rouge!</h3>
+    <h1 class="title">Geaux Quest</h1>
+    <button id="startButton">Begin Your Quest</button>
+    <div id="dropdownMenu" class="dropdown hidden">
+      <ul>
+        <li>Attractions</li>
+        <li>Outdoors & Recreation</li>
+        <li>History</li>
+      </ul>
+    </div>
+  </div>
+  <script>
+    const auth_url = "{{ url_for('login_page') }}";
+  </script>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

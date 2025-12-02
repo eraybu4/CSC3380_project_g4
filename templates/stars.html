@@ -4,7 +4,7 @@
 
 <head>
 
-	<link rel="stylesheet" href="stars.css">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/stars.css') }}">
 
 </head>
 
@@ -12,21 +12,20 @@
 
 	<h1>Constellations Page</h1>
 
-
 	<div class="box1">
 		Constellation Box 1
 	  <div class="box1_inner">
 
 			<svg id="constellationSvg1" class="constellation-lines" preserveAspectRatio="none"></svg>
 
-			<img id="star1" class="star" src="StarNotActivated.png">
-			<img id="star2" class="star" src="StarNotActivated.png">
-			<img id="star3" class="star" src="StarNotActivated.png">
-			<img id="star4" class="star" src="StarNotActivated.png">
-			<img id="star5" class="star" src="StarNotActivated.png">
-			<img id="star6" class="star" src="StarNotActivated.png">
-			<img id="star7" class="star" src="StarNotActivated.png">
-			<img id="star8" class="star" src="StarNotActivated.png">
+			<img id="star1" class="star" src="img/StarNotActivated.png">
+			<img id="star2" class="star" src="img/StarNotActivated.png">
+			<img id="star3" class="star" src="img/StarNotActivated.png">
+			<img id="star4" class="star" src="img/StarNotActivated.png">
+			<img id="star5" class="star" src="img/StarNotActivated.png">
+			<img id="star6" class="star" src="img/StarNotActivated.png">
+			<img id="star7" class="star" src="img/StarNotActivated.png">
+			<img id="star8" class="star" src="img/StarNotActivated.png">
 	    </div> 		
 
 	</div>	    
@@ -37,11 +36,11 @@
 
 			<svg id="constellationSvg2" class="constellation-lines" preserveAspectRatio="none"></svg>
 
-			<img id="star9" class="star"  src="StarNotActivated.png">
-			<img id="star10" class="star" src="StarNotActivated.png">
-			<img id="star11" class="star" src="StarNotActivated.png">
-			<img id="star12" class="star" src="StarNotActivated.png">
-			<img id="star13" class="star" src="StarNotActivated.png">
+			<img id="star9" class="star"  src="img/StarNotActivated.png">
+			<img id="star10" class="star" src="img/StarNotActivated.png">
+			<img id="star11" class="star" src="img/StarNotActivated.png">
+			<img id="star12" class="star" src="img/StarNotActivated.png">
+			<img id="star13" class="star" src="img/StarNotActivated.png">
 
 	    </div>
 	</div>
@@ -52,10 +51,10 @@
 
 			<svg id="constellationSvg3" class="constellation-lines" preserveAspectRatio="none"></svg>
 
-			<img id="star14" class="star" src="StarNotActivated.png">
-			<img id="star15" class="star" src="StarNotActivated.png">
-			<img id="star16" class="star" src="StarNotActivated.png">
-			<img id="star17" class="star" src="StarNotActivated.png">
+			<img id="star14" class="star" src="img/StarNotActivated.png">
+			<img id="star15" class="star" src="img/StarNotActivated.png">
+			<img id="star16" class="star" src="img/StarNotActivated.png">
+			<img id="star17" class="star" src="img/StarNotActivated.png">
 
 	  </div>
 	</div>
@@ -68,7 +67,7 @@
 		<br><br>
 
 		<button id="enterButton">Enter</button>
-		<script src="stars.js"></script>
+		<script src="{{ url_for('static', filename='js/stars.js') }}"></script>
 
 	 </form>
 
@@ -76,12 +75,12 @@
 	</div>
 
 	<div style="position: relative; top:100px; left: 30px; z-index: 1000;">
-	     <button class="backBut" onclick="window.location.href='Testing.html'">Back</button>
+	     <button class="backBut" onclick="window.location.href='dashboard'">Back</button>
 
 	</div>
 
 
-<script src="starRender.js"></script>
+<script src="{{ url_for('static', filename='js/starRender.js') }}"></script>
 
 
 </body>
