@@ -6,12 +6,12 @@ from flask_sqlalchemy import SQLAlchemy
 app=Flask(__name__)
 app.secret_key="crazy_secret_key"
 
-app.config["SQLAlchemy_DATABASE_URI"]="sqlite:///Database.db"
-app.config["SQLAlchemy_TRACK_MPDIFICATIONS"]=False;
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///Database.db"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db=SQLAlchemy(app)
 
 #model for user =single row
-class User(db.model):
+class User(db.Model):
     #class variables
     id = db.Column(db.Integer, primary_key=True)
     username=db.Column(db.String(25), unique=True, nullable =False)
@@ -32,7 +32,7 @@ def home():
     return render_template('index.html')
 
 #Login route
-@app.route("/Login", methods=["POST"])
+@app.route("/login", methods=["POST"])
 def login():
         if request.method=="POST":
             username=request.form.get("username")
@@ -46,7 +46,7 @@ def login():
         return render_template("Index.html")
 
 #register route
-@app.route("/register", method=["POST"])
+@app.route("/register", methods=["POST"])
 def register():
     if user:
         return render_template("index.html", error="User already exists")
@@ -65,7 +65,7 @@ def dashboard():
             return redirect(url_for('home'))
 
 #logout route 
-app.route("/logout")
+@app.route("/logout")
 def logout():
     session.pop("username", None)
     return redirect(url_for("home"))
@@ -75,3 +75,4 @@ if __name__ in '__main__':
     with app.app_context():
         db.create_all()
     app.run(debug=True)
+
