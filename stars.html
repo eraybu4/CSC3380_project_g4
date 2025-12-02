@@ -15,6 +15,7 @@
 	   padding: 5px;
 	   font-family: Lucida Console;
 	   text-align: left;
+	   color: rgb(0, 0, 0);
 	}
 
 
@@ -65,7 +66,7 @@
 
 
 	.box2{
-	   width: 1200px;
+	   width: 900px;
 	   height: 200px;
 	   background: linear-gradient(to right, orange, rgb(255,38,0));
 	   border-radius: 50px;
@@ -75,6 +76,7 @@
 	   padding: 5px;
 	   font-family: Lucida Console;
 	   text-align: left;
+	   color: rgb(0, 0, 0);
 	}
 
 	.box2_inner{
@@ -99,6 +101,7 @@
 	   padding: 5px; 
 	   font-family: Lucida Console;
 	   text-align: left;
+	   color: rgb(0, 0, 0);
 	   
 	}
 	
@@ -130,6 +133,17 @@
   stroke-width: 2;
 }
 
+#starAmount{
+	position: absolute;
+	z-index: 100;
+}
+
+body {
+	background-color: rgb(68, 68, 100);
+	font-family: Lucida Console;
+	color: bisque;
+}
+
 
 </style>
 
@@ -138,9 +152,9 @@
 
 <body>
 
-	<h1>Your button successfully took you to the stars page!</h1>
+	<h1>Constellations Page</h1>
 	<p>This page is in connection with the Rewards page. Waiting to add backend logic to 
-		make sure that when user has so many stars, you can see the stars on this page light up to track progress. 
+		make sure that when user has so many stars, you can see the stars on this page light up to track progress.</p>
 
 	<div class="box1">
 		Constellation Box 1
@@ -173,8 +187,8 @@
 			<img id="star13" class="star" src="StarNotActivated.png">
 
 	    </div>
+	</div>
 	
-
 	<div class="box3">
 		Constellation Box 3
 	  <div class="box3_inner">
@@ -188,6 +202,22 @@
 
 	  </div>
 	</div>
+
+	<div style="position: relative; top:100px; left: 30px;">
+
+	 <form>
+		<label for="starAmount">Select the amount of stars earned: </label>
+		<input type="number" name="starAmount" min="0" max="100" id="starAmount">
+		<br><br>
+		<button id="enterButton">Enter</button>
+		<script src="stars.js"></script>
+
+	 </form>
+
+
+	</div>
+
+
 
 <script>
 
@@ -238,11 +268,10 @@
 
 	});
 
-	
-  
 
 </script>
 
-
 </body>
+
+
 </html> 
