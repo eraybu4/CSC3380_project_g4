@@ -1,103 +1,165 @@
-
-
-
-* { box-sizing: border-box; }
-html, body { height: 100%; }
-body {
-  margin: 0;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  background: #fff;
-  color: #111;
-  display: grid;
-  grid-template-columns: 220px 1fr; 
+/* reset so things don't act goofy */
+* {
+  box-sizing: border-box;
 }
 
-/* Sidebar */
+html, body {
+  height: 100%;
+}
+
+/* layout with sidebar left + main content right */
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #ffffff;
+  color: #111827;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+}
+
+/* sidebar */
 .sidebar {
-  background: #ffd300;                
-  border-right: 1px solid #e1b800;
-  padding: 14px 12px;
-  position: sticky; top: 0; height: 100dvh; 
+  background: #111827;
+  color: white;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .sidebar h1 {
-  margin: 6px 0 12px;
-  font-size: 20px;
-  font-weight: 800;
+  margin: 0;
 }
 
-.nav { display: grid; gap: 12px; }
+/* sidebar buttons */
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 
 .nav-btn {
-  width: 100%;
-  background: #fff;
-  color: #111;
-  border: 1px solid #e5e5e5;
-  border-radius: 8px;
-  padding: 10px 12px;
+  border: none;
+  background: transparent;
+  color: #e5e7eb;
   text-align: left;
-  font-weight: 600;
-  box-shadow: 0 1px 0 rgba(0,0,0,0.05);
-  cursor: pointer;
-}
-.nav-btn:focus,
-.nav-btn:hover {
-  outline: none;
-  border-color: #d6d6d6;
-  background: #fafafa;
-}
-
-/* Main column */
-.main {
-  padding: 60px 18px;
-}
-
-
-.list {
-  max-width: 600px;    
-}
-
-/* Reward card */
-.card {
-  background: #fff;
-  border: 2px solid #f1c40f;         
-  border-radius: 12px;
-  padding: 16px;
-  margin: 12px 0;                      
-  box-shadow: 0 2px 0 rgba(0,0,0,0.04);
-}
-
-.card h3 {
-  margin: 0 0 8px;
-  font-size: 16px;
-  font-weight: 800;
-}
-
-.card p {
-  margin: 0 0 12px;
-  font-size: 13px;
-  color: #555;
-}
-
-/* Stars button inside the card */
-.star-btn {
-  display: inline-block;
-  background: #ffd300;               
-  color: #111;
-  border: 1px solid #e1b800;
-  border-radius: 12px;
-  font-weight: 800;
-  font-size: 12px;
   padding: 8px 12px;
+  border-radius: 999px;
   cursor: pointer;
+  font-size: 14px;
 }
-.star-btn:hover { filter: brightness(0.95); }
-.star-btn:active { transform: translateY(1px); }
 
-/* Scrimba hack */
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-btn-active {
+  background: #facc15;
+  color: #111827;
+  font-weight: 600;
+}
+
+/* main content */
+.main {
+  padding: 24px;
+  overflow-y: auto;
+}
+
+/* top hero */
+.hero {
+  background: #fef3c7;
+  border: 1px solid #facc15;
+  border-radius: 16px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+}
+
+.hero p {
+  color: #4b5563;
+  margin: 0;
+}
+
+/* reward grid */
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* each card */
+.card {
+  background: #fef9c3;
+  border-radius: 16px;
+  border: 1px solid #facc15;
+  padding: 14px 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 6px 14px rgba(252, 211, 77, 0.25);
+}
+
+/* reward images */
+.card-img {
+  width: 100%;
+  height: 250px;         /* bigger image box */
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* redeem button */
+.star-btn {
+  margin-top: 8px;
+  align-self: flex-start;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: none;
+  background: #facc15;
+  color: #111827;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.08s ease, filter 0.08s ease;
+}
+
+.star-btn:hover {
+  filter: brightness(0.95);
+}
+
+.star-btn:active {
+  transform: translateY(1px);
+}
+
+/* selected card */
+.card.selected {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.4);
+}
+
+/* disabled */
+.star-btn.disabled {
+  background: #e5e7eb;
+  color: #6b7280;
+  cursor: not-allowed;
+}
+
+/* mobile fix */
 @media (max-width: 720px) {
-  body { grid-template-columns: 1fr; }
-  .sidebar { position: relative; height: auto; }
-  .main { padding: 12px; }
-  .list { max-width: 100%; }
+  body {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .main {
+    padding: 16px;
+  }
 }
