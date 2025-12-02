@@ -1,4 +1,3 @@
-from _typeshed import IdentityFunction
 from flask import Flask,render_template,request,redirect, session
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
@@ -6,19 +5,19 @@ from flask_sqlalchemy import SQLAlchemy
 app=Flask(__name__)
 app.secret_key="crazy_secret_key"
 
-app.config["SQLAlchemy_DATABASE_URI"]="sqlite:///Database.db"
-app.config["SQLAlchemy_TRACK_MPDIFICATIONS"]=False;
+app.config["SQLALCHEMY_DATABASE_URI"]="sqlite:///Database.db"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"]=False;
 db=SQLAlchemy(app)
 
 #model for user =single row
-class User(db.model):
+class User(db.Model):
     #class variables
     id = db.Column(db.Integer, primary_key=True)
     username=db.Column(db.String(25), unique=True, nullable =False)
     password_hash= db.Column(db.String(150), nullable=False)
 
     def set_password(self, password):
-        self.password= generate_password_hash(password)
+        self.password_hash = generate_password_hash(password)
         
     def check_password(self, password):
         return check_password_hash(self.password_hash,password)
@@ -28,8 +27,8 @@ class User(db.model):
 @app.route("/")
 def home():
     if "username" in session:
-        return redirect(url_for("/dashboard"))
-    return render_template('index.html')
+        return redirect(url_for("dashboard"))
+    return render_template('stars.html')
 
 #Login route
 @app.route("/Login", methods=["POST"])
@@ -43,10 +42,10 @@ def login():
             return redirect(url_for("dashboard"))
         else:
             return "Invalid credentials"
-        return render_template("Index.html")
+      
 
 #register route
-@app.route("/register", method=["POST"])
+@app.route("/register", methods=["POST"])
 def register():
     if user:
         return render_template("index.html", error="User already exists")
