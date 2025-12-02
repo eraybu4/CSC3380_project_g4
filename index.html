@@ -3,63 +3,102 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sidebar Demo</title>
+  <title>Rewards – Redeem Page</title>
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Sidebar view-->
+  <!-- LEFT SIDEBAR -->
   <aside class="sidebar">
-    <h1>Home</h1>
+    <h1>Rewards</h1>
 
     <nav class="nav">
       <button class="nav-btn">Stars</button>
       <button class="nav-btn">Missions</button>
-      <button class="nav-btn">Rewards</button>
+      <button class="nav-btn nav-btn-active">Rewards</button>
+      <button class="nav-btn">Profile</button>
     </nav>
   </aside>
 
-  <!-- Main columns -->
+  <!-- MAIN CONTENT -->
   <main class="main">
+
+    <header class="hero">
+      <h2>Redeem Your Rewards</h2>
+      <p>Pick something cute if you got the stars ⭐</p>
+    </header>
+
     <section class="list">
-     
+
+      <!-- Reward 1 – $25 Visa Gift Card -->
       <article class="card">
-        <h3>Reward 1</h3>
-        <p>Small perk</p>
+        <img 
+          src="https://usa.visa.com/pay-with-visa/find-card/assets/images/gift-card-finder-1920x1080.jpg"
+          class="card-img" 
+        />
+        <h3>Reward 1 – $25 Visa Gift Card</h3>
+        <p>Redeem for a $25 prepaid Visa card.</p>
         <button class="star-btn">20 ★ stars</button>
       </article>
 
-    
+      <!-- Reward 2 – $50 Visa Gift Card -->
       <article class="card">
-        <h3>Reward 2</h3>
-        <p>Small perk</p>
-        <button class="star-btn">20 ★ stars</button>
+        <img 
+          src="https://usa.visa.com/pay-with-visa/find-card/assets/images/gift-card-finder-1920x1080.jpg"
+          class="card-img" 
+        />
+        <h3>Reward 2 – $50 Visa Gift Card</h3>
+        <p>Level up to a $50 Visa gift card.</p>
+        <button class="star-btn">40 ★ stars</button>
       </article>
 
+      <!-- Reward 3 – New Video Game -->
       <article class="card">
-        <h3>Reward 3</h3>
-        <p>Small perk</p>
-        <button class="star-btn">20 ★ stars</button>
+        <img 
+          src="https://m.media-amazon.com/images/I/91SF0Tzmv4L._AC_UF1000,1000_QL80_.jpg"
+          class="card-img" 
+        />
+        <h3>Reward 3 – New Video Game</h3>
+        <p>Choose any new video game you want.</p>
+        <button class="star-btn">60 ★ stars</button>
       </article>
 
+      <!-- Reward 4 – New iPad -->
       <article class="card">
-        <h3>Reward 4</h3>
-        <p>Small perk</p>
-        <button class="star-btn">20 ★ stars</button>
+        <img 
+          src="https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/ipad-pro-finish-unselect-gallery-2-202405_FMT_WHH?wid=1280&hei=720&fmt=p-jpg&qlt=80&.v=YXpaUEtKWGhlNnNrVGZkTEo4T0xsN2dzSmpObkZCM3MrNmJ5SkhESlNDaktqSkExTHB4VHJRR1hzOGdBenBuczN0bWR6ME9RYmIrVG9PSXZFalM2aHdBb0pjWml6bllCL0Y5a1RKc2gxZjlIaERUT3FJbHFiWTlmb2lodm1tWE55UjVHcmIzQTc0UDFXY0hsUWdxUDFR&traceId=1"
+          class="card-img" 
+        />
+        <h3>Reward 4 – New iPad</h3>
+        <p>Trade your stars for a brand new iPad.</p>
+        <button class="star-btn">120 ★ stars</button>
       </article>
 
+      <!-- Reward 5 – New Phone -->
       <article class="card">
-        <h3>Reward 5</h3>
-        <p>Small perk</p>
-        <button class="star-btn">20 ★ stars</button>
+        <img 
+          src="https://cdn.mos.cms.futurecdn.net/hf2CQvHr9KNtKuUSDkeQVH.jpg"
+          class="card-img" 
+        />
+        <h3>Reward 5 – New Phone</h3>
+        <p>Redeem for a new smartphone.</p>
+        <button class="star-btn">160 ★ stars</button>
       </article>
 
-      
+      <!-- Reward 6 – Designer Item -->
       <article class="card">
-        <h3>Reward 6</h3>
-        <p>Small perk</p>
-        <button class="star-btn">20 ★ stars</button>
+        <img 
+          src="https://www.apetogentleman.com/wp-content/uploads/2021/08/20DesignerBrand1.jpg"
+          class="card-img" 
+        />
+        <h3>Reward 6 – Designer Item</h3>
+        <p>Pick a designer item of your choice.</p>
+        <button class="star-btn">200 ★ stars</button>
       </article>
+
     </section>
   </main>
+
+  <script src="app.js"></script>
 </body>
 </html>
