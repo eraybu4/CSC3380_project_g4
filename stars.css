@@ -1,0 +1,143 @@
+
+
+	.box1{
+	   width: 900px;
+	   height: 200px;
+	   background: linear-gradient(to right, gold, rgb(255,38,0));
+	   border-radius: 50px;
+	   display: flex;
+	   justify-content: center;
+	   align-items: center;
+	   padding: 5px;
+	   font-family: Lucida Console;
+	   text-align: left;
+	   color: rgb(0, 0, 0);
+	}
+
+
+	.box1_inner{
+	   width: 100%;
+	   height: 100%;
+	   background: linear-gradient(to top, rgb(59, 66, 94), darkslateblue);
+	   border-radius: 50px;
+	   display: flex;
+	   justify-content: flex-start;
+	   align-items: center;
+	   margin-right: 5px;
+	   padding-right:5px;
+	   position: relative;
+
+	}
+
+	.star{
+		width: 40px;
+		height: 40px;
+		transition: filter 0.5s ease;
+		position: relative;
+		z-index: 2;
+	}
+
+	.star:hover{
+		filter: brightness(2);
+	}
+
+	#star1{ top: -50px; left: 20px; }
+	#star2{ top: -50px; left: 50px; }
+	#star3{ top:   0px; left: 100px; width: 30px; height: 30px; }
+	#star4{ top: -60px; left: 150px; }
+	#star5{ top:  20px; left: 200px; }
+	#star6{ top:  30px; left: 300px; }
+	#star7{ top: -50px; left: 350px; width: 30px; height: 30px; }
+	#star8{ top: -50px; left: 400px; }
+	#star9{ top: -30px; left:-100px; }
+   #star10{ top: -70px; left:-50px;  }
+   #star11{ top: -20px; left:  0px;  }
+   #star12{ top:  70px; left:-80px;  }
+   #star13{ top:  70px; left:-250px; }
+   #star14{ top:  70px; left: -40px; }
+   #star15{ top:   0px; left:   0px; }
+   #star16{ top: -20px; left:  20px; }
+   #star17{ top:   0px; left:  20px; }
+
+
+
+	.box2{
+	   width: 900px;
+	   height: 200px;
+	   background: linear-gradient(to right, orange, rgb(255,38,0));
+	   border-radius: 50px;
+	   display: flex;
+	   justify-content: center;
+	   align-items: center;
+	   padding: 5px;
+	   font-family: Lucida Console;
+	   text-align: left;
+	   color: rgb(0, 0, 0);
+	}
+
+	.box2_inner{
+	   width: 100%;
+	   height: 100%;
+	   background: linear-gradient(to top, rgb(59, 66, 94), darkslateblue);
+	   border-radius: 50px;
+	   display: flex;
+	   justify-content: center;
+	   align-items: center;
+	   margin-left: 20px;
+	}
+
+	.box3{
+	   width: 900px;
+	   height: 200px;
+	   background: linear-gradient(to right, rgb(255, 104, 33), rgb(255,38,0));
+	   border-radius: 50px;
+	   display: flex;
+	   justify-content: center;
+	   align-items: center;
+	   padding: 5px; 
+	   font-family: Lucida Console;
+	   text-align: left;
+	   color: rgb(0, 0, 0);
+	   
+	}
+	
+	.box3_inner{
+	   width: 100%;
+	   height: 100%;
+	   background: linear-gradient(to top, rgb(59, 66, 94), darkslateblue);
+	   border-radius: 50px;
+	   display: flex;
+	   justify-content: center;
+	   align-items: center;
+	   margin-left: 5px;
+	   text-align: center;
+	   position: relative;
+
+	}
+
+.constellation-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+ 
+}
+.constellation-lines line {
+  stroke: rgba(255, 255, 255, 0.308);
+  stroke-width: 2;
+}
+
+#starAmount{
+	position: absolute;
+	z-index: 100;
+}
+
+body {
+	background-color: rgb(68, 68, 100);
+	font-family: Lucida Console;
+	color: bisque;
+}
+
+
