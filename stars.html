@@ -1,160 +1,17 @@
 <!doctype html>
-<head>
-
 
 <html>
-<style>
-	.box1{
-	   width: 900px;
-	   height: 200px;
-	   background: linear-gradient(to right, gold, rgb(255,38,0));
-	   border-radius: 50px;
-	   display: flex;
-	   justify-content: center;
-	   align-items: center;
-	   padding: 5px;
-	   font-family: Lucida Console;
-	   text-align: left;
-	   color: rgb(0, 0, 0);
-	}
 
+<head>
 
-	.box1_inner{
-	   width: 100%;
-	   height: 100%;
-	   background: linear-gradient(to top, rgb(59, 66, 94), darkslateblue);
-	   border-radius: 50px;
-	   display: flex;
-	   justify-content: flex-start;
-	   align-items: center;
-	   margin-right: 5px;
-	   padding-right:5px;
-	   position: relative;
-
-	}
-
-	.star{
-		width: 40px;
-		height: 40px;
-		transition: filter 0.5s ease;
-		position: relative;
-		z-index: 2;
-	}
-
-	.star:hover{
-		filter: brightness(2);
-	}
-
-	#star1{ top: -50px; left: 20px; }
-	#star2{ top: -50px; left: 50px; }
-	#star3{ top:   0px; left: 100px; width: 30px; height: 30px; }
-	#star4{ top: -60px; left: 150px; }
-	#star5{ top:  20px; left: 200px; }
-	#star6{ top:  30px; left: 300px; }
-	#star7{ top: -50px; left: 350px; width: 30px; height: 30px; }
-	#star8{ top: -50px; left: 400px; }
-	#star9{ top: -30px; left:-100px; }
-   #star10{ top: -70px; left:-50px;  }
-   #star11{ top: -20px; left:  0px;  }
-   #star12{ top:  70px; left:-80px;  }
-   #star13{ top:  70px; left:-250px; }
-   #star14{ top:  70px; left: -40px; }
-   #star15{ top:   0px; left:   0px; }
-   #star16{ top: -20px; left:  20px; }
-   #star17{ top:   0px; left:  20px; }
-
-
-
-	.box2{
-	   width: 900px;
-	   height: 200px;
-	   background: linear-gradient(to right, orange, rgb(255,38,0));
-	   border-radius: 50px;
-	   display: flex;
-	   justify-content: center;
-	   align-items: center;
-	   padding: 5px;
-	   font-family: Lucida Console;
-	   text-align: left;
-	   color: rgb(0, 0, 0);
-	}
-
-	.box2_inner{
-	   width: 100%;
-	   height: 100%;
-	   background: linear-gradient(to top, rgb(59, 66, 94), darkslateblue);
-	   border-radius: 50px;
-	   display: flex;
-	   justify-content: center;
-	   align-items: center;
-	   margin-left: 20px;
-	}
-
-	.box3{
-	   width: 900px;
-	   height: 200px;
-	   background: linear-gradient(to right, rgb(255, 104, 33), rgb(255,38,0));
-	   border-radius: 50px;
-	   display: flex;
-	   justify-content: center;
-	   align-items: center;
-	   padding: 5px; 
-	   font-family: Lucida Console;
-	   text-align: left;
-	   color: rgb(0, 0, 0);
-	   
-	}
-	
-	.box3_inner{
-	   width: 100%;
-	   height: 100%;
-	   background: linear-gradient(to top, rgb(59, 66, 94), darkslateblue);
-	   border-radius: 50px;
-	   display: flex;
-	   justify-content: center;
-	   align-items: center;
-	   margin-left: 5px;
-	   text-align: center;
-	   position: relative;
-
-	}
-
-.constellation-lines {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
- 
-}
-.constellation-lines line {
-  stroke: rgba(255, 255, 255, 0.308);
-  stroke-width: 2;
-}
-
-#starAmount{
-	position: absolute;
-	z-index: 100;
-}
-
-body {
-	background-color: rgb(68, 68, 100);
-	font-family: Lucida Console;
-	color: bisque;
-}
-
-
-</style>
-
+	<link rel="stylesheet" href="stars.css">
 
 </head>
 
 <body>
 
 	<h1>Constellations Page</h1>
-	<p>This page is in connection with the Rewards page. Waiting to add backend logic to 
-		make sure that when user has so many stars, you can see the stars on this page light up to track progress.</p>
+
 
 	<div class="box1">
 		Constellation Box 1
@@ -203,12 +60,13 @@ body {
 	  </div>
 	</div>
 
-	<div style="position: relative; top:100px; left: 30px;">
+	<div style="position: relative; top:100px; left: 30px; z-index: 1000;">
 
 	 <form>
 		<label for="starAmount">Select the amount of stars earned: </label>
 		<input type="number" name="starAmount" min="0" max="100" id="starAmount">
 		<br><br>
+
 		<button id="enterButton">Enter</button>
 		<script src="stars.js"></script>
 
@@ -217,59 +75,14 @@ body {
 
 	</div>
 
+	<div style="position: relative; top:100px; left: 30px; z-index: 1000;">
+	     <button class="backBut" onclick="window.location.href='Testing.html'">Back</button>
+
+	</div>
 
 
-<script>
+<script src="starRender.js"></script>
 
-  
-	const boxes = document.querySelectorAll('.box1_inner, .box2_inner, .box3_inner');
-
-	boxes.forEach(function(box){
-		
-		const svg = box.querySelector('svg');
-		const stars = Array.from(box.querySelectorAll('.star'));
-
-
-		 function createLines() {
-			while (svg.firstChild) svg.removeChild(svg.firstChild);
-			const needed = stars.length - 1
-
-			for (let i = 0; i < needed; i++) {
-			const ln = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-			ln.setAttribute('id', 'lineNumber' + (i+1));
-			svg.appendChild(ln);
-    		}
-  		 }
-
-		 function centerOf(element) {
-			const svgRect = svg.getBoundingClientRect();
-			const r = element.getBoundingClientRect();
-			return {
-			x: (r.left - svgRect.left) + r.width / 2,
-			y: (r.top  - svgRect.top)  + r.height / 2
-			};
-		 }
-
-		 function updateLines() {
-			const lines = Array.from(svg.querySelectorAll('line'));
-			for (let i = 0; i < lines.length; i++) {
-			const a = centerOf(stars[i]);
-			const b = centerOf(stars[i+1]);
-			const ln = lines[i];
-			ln.setAttribute('x1', a.x);
-			ln.setAttribute('y1', a.y);
-			ln.setAttribute('x2', b.x);
-			ln.setAttribute('y2', b.y);
-    		}
-  		 }
-
-			createLines();
-			updateLines();
-
-	});
-
-
-</script>
 
 </body>
 
