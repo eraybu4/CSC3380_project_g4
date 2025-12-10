@@ -152,7 +152,7 @@ def logout():
     return redirect(url_for("home"))
 
 @app.route("/locations")
-def locations_page():
+def locations():
     locations = load_json()
     return render_template("locations.html", locations=locations)
 
