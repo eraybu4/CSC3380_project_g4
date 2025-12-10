@@ -4,10 +4,10 @@ const starTotal = Number(document.getElementById("starAmount").value);
     e.preventDefault();
 
 
-for (let i = 1; i <= 17; i++) {
+for (let i = 0; i <= 17; i++) {
 
     const starElement = document.getElementById("star" + i);
-    if (starTotal >= i * 5) {
+    if (starTotal >= i) {
         starElement.src = "img/StarActivated.png";
 
     } else {

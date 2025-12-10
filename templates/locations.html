@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Locations – Explore Baton Rouge</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+</head>
+<body>
+  <!-- LEFT SIDEBAR -->
+  <aside class="sidebar">
+    <h1>Explore</h1>
+
+    <nav class="nav">
+      <button class="nav-btn" onclick="window.location.href='stars'">Stars</button>
+      <button class="nav-btn nav-btn-active">Locations</button>
+      <button class="nav-btn" onclick="window.location.href='dashboard'">Rewards</button>
+      <button class="nav-btn" onclick="window.location.href='logout'">Logout</button>
+    </nav>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <header class="hero">
+      <h2>Explore Baton Rouge</h2>
+      <p>Browse local art, parks, and more.</p>
+    </header>
+
+    <section class="list">
+      {% for loc in locations %}
+      <article class="card">
+        <h3>{{ loc.name }}</h3>
+        <p>{{ loc.address }}</p>
+
+        <button class="star-btn">
+          {{ loc.category }}
+        </button>
+      </article>
+      {% endfor %}
+    </section>
+
+  </main>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

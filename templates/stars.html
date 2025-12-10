@@ -1,89 +1,102 @@
 <!doctype html>
-
-<html>
-
+<html lang="en">
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stars – Constellations</title>
 
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/stars.css') }}">
-
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/stars.css') }}">
 </head>
-
 <body>
 
-	<h1>Constellations Page</h1>
+  <!-- LEFT SIDEBAR -->
+  <aside class="sidebar">
+    <h1>Rewards</h1>
 
-	<div class="box1">
-		Constellation Box 1
-	  <div class="box1_inner">
+    <nav class="nav">
+      <button class="nav-btn nav-btn-active">Stars</button>
+      <button class="nav-btn" onclick="window.location.href='locations'">Locations</button>
+      <button class="nav-btn" onclick="window.location.href='dashboard'">Rewards</button>
+      <button class="nav-btn" onclick="window.location.href='logout'">Logout</button>
+    </nav>
+  </aside>
 
-			<svg id="constellationSvg1" class="constellation-lines" preserveAspectRatio="none"></svg>
+  <!-- MAIN CONTENT -->
+  <main class="main">
 
-			<img id="star1" class="star" src="img/StarNotActivated.png">
-			<img id="star2" class="star" src="img/StarNotActivated.png">
-			<img id="star3" class="star" src="img/StarNotActivated.png">
-			<img id="star4" class="star" src="img/StarNotActivated.png">
-			<img id="star5" class="star" src="img/StarNotActivated.png">
-			<img id="star6" class="star" src="img/StarNotActivated.png">
-			<img id="star7" class="star" src="img/StarNotActivated.png">
-			<img id="star8" class="star" src="img/StarNotActivated.png">
-	    </div> 		
+    <header class="hero">
+      <h2>Your Constellations</h2>
+      <p>Stars earned appear in each constellation below.</p>
+    </header>
 
-	</div>	    
-  
-	<div class="box2">
-		Constellation Box 2
-	  <div class="box2_inner">
+    <!-- CONSTELLATION SECTION -->
+    <section>
 
-			<svg id="constellationSvg2" class="constellation-lines" preserveAspectRatio="none"></svg>
+      <h2 style="margin-bottom: 20px;">Constellations Page</h2>
 
-			<img id="star9" class="star"  src="img/StarNotActivated.png">
-			<img id="star10" class="star" src="img/StarNotActivated.png">
-			<img id="star11" class="star" src="img/StarNotActivated.png">
-			<img id="star12" class="star" src="img/StarNotActivated.png">
-			<img id="star13" class="star" src="img/StarNotActivated.png">
+      <!-- Box 1 -->
+      <div class="box1">
+        Constellation Box 1
+        <div class="box1_inner">
 
-	    </div>
-	</div>
-	
-	<div class="box3">
-		Constellation Box 3
-	  <div class="box3_inner">
+          <svg id="constellationSvg1" class="constellation-lines" preserveAspectRatio="none"></svg>
 
-			<svg id="constellationSvg3" class="constellation-lines" preserveAspectRatio="none"></svg>
+          <img id="star1"  class="star" src="{{ url_for('static', filename='img/StarNotActivated.png') }}">
+          <img id="star2"  class="star" src="{{ url_for('static', filename='img/StarNotActivated.png') }}">
+          <img id="star3"  class="star" src="{{ url_for('static', filename='img/StarNotActivated.png') }}">
+          <img id="star4"  class="star" src="{{ url_for('static', filename='img/StarNotActivated.png') }}">
+          <img id="star5"  class="star" src="{{ url_for('static', filename='img/StarNotActivated.png') }}">
+          <img id="star6"  class="star" src="{{ url_for('static', filename='img/StarNotActivated.png') }}">
+          <img id="star7"  class="star" src="{{ url_for('static', filename='img/StarNotActivated.png') }}">
+          <img id="star8"  class="star" src="{{ url_for('static', filename='img/StarNotActivated.png') }}">
+        </div>
+      </div>
 
-			<img id="star14" class="star" src="img/StarNotActivated.png">
-			<img id="star15" class="star" src="img/StarNotActivated.png">
-			<img id="star16" class="star" src="img/StarNotActivated.png">
-			<img id="star17" class="star" src="img/StarNotActivated.png">
+      <!-- Box 2 -->
+      <div class="box2">
+        Constellation Box 2
+        <div class="box2_inner">
 
-	  </div>
-	</div>
+          <svg id="constellationSvg2" class="constellation-lines" preserveAspectRatio="none"></svg>
 
-	<div style="position: relative; top:100px; left: 30px; z-index: 1000;">
+          <img id="star9"  class="star" src="{{ url_for('static', filename='img/StarNotActivated.png') }}">
+          <img id="star10" class="star" src="{{ url_for('static', filename='img/StarNotActivated.png') }}">
+          <img id="star11" class="star" src="{{ url_for('static', filename='img/StarNotActivated.png') }}">
+          <img id="star12" class="star" src="{{ url_for('static', filename='img/StarNotActivated.png') }}">
+          <img id="star13" class="star" src="{{ url_for('static', filename='img/StarNotActivated.png') }}">
+        </div>
+      </div>
 
-	 <form>
-		<label for="starAmount">Select the amount of stars earned: </label>
-		<input type="number" name="starAmount" min="0" max="100" id="starAmount">
-		<br><br>
+      <!-- Box 3 -->
+      <div class="box3">
+        Constellation Box 3
+        <div class="box3_inner">
 
-		<button id="enterButton">Enter</button>
-		<script src="{{ url_for('static', filename='js/stars.js') }}"></script>
+          <svg id="constellationSvg3" class="constellation-lines" preserveAspectRatio="none"></svg>
 
-	 </form>
+          <img id="star14" class="star" src="{{ url_for('static', filename='img/StarNotActivated.png') }}">
+          <img id="star15" class="star" src="{{ url_for('static', filename='img/StarNotActivated.png') }}">
+          <img id="star16" class="star" src="{{ url_for('static', filename='img/StarNotActivated.png') }}">
+          <img id="star17" class="star" src="{{ url_for('static', filename='img/StarNotActivated.png') }}">
+        </div>
+      </div>
 
+      <div style="margin-top: 40px;">
+        <form>
+          <label for="starAmount">Select the amount of stars earned:</label>
+          <input type="number" name="starAmount" min="0" max="100" id="starAmount">
+          <br><br>
+          <button id="enterButton">Enter</button>
+        </form>
+      </div>
 
-	</div>
+    </section>
 
-	<div style="position: relative; top:100px; left: 30px; z-index: 1000;">
-	     <button class="backBut" onclick="window.location.href='dashboard'">Back</button>
+  </main>
 
-	</div>
-
-
-<script src="{{ url_for('static', filename='js/starRender.js') }}"></script>
-
+  <script src="{{ url_for('static', filename='js/stars.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/starRender.js') }}"></script>
 
 </body>
-
-
-</html> 
+</html>

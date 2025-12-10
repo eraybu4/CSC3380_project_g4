@@ -1,6 +1,8 @@
 from flask import Flask,render_template,request,redirect, session, url_for
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
+import json
+import os
 
 app=Flask(
     __name__,
@@ -28,6 +30,59 @@ class User(db.Model):
     def check_password(self, password):
         return check_password_hash(self.password_hash,password)
 
+def extract_locations(feature_collection):
+    locations = []
+    for feature in feature_collection["features"]:
+        props = feature.get("properties", {})
+
+        name = (
+            props.get("FACILITY_NAME") or
+            props.get("PLACE_NAME") or
+            props.get("TITLE") or
+            "Unknown Location"
+        )
+
+        address = (
+            props.get("FULL_ADDRESS") or
+            props.get("ADDRESS") or
+            props.get("LOCATION") or
+            "No address available"
+        )
+
+        city = props.get("CITY", "")
+        state = props.get("STATE", "")
+        zip_code = props.get("ZIP", "")
+
+        full_address = f"{address}, {city}, {state} {zip_code}".strip(", ")
+
+        category = (
+            props.get("CLASSIFICATION") or
+            props.get("TYPE") or
+            "General"
+        )
+
+        locations.append({
+            "name": name,
+            "address": full_address,
+            "category": category
+        })
+
+    return locations
+
+
+def load_json():
+    data_dir = os.path.join("static", "data")
+    all_locations = []
+
+    for filename in os.listdir(data_dir):
+        if filename.endswith(".geojson"):
+            path = os.path.join(data_dir, filename)
+
+            with open(path, "r") as f:
+                raw = json.load(f)
+                all_locations.extend(extract_locations(raw))
+
+    return all_locations   
 
 #routes for home page
 @app.route("/")
@@ -95,6 +150,11 @@ def dashboard():
 def logout():
     session.pop("username", None)
     return redirect(url_for("home"))
+
+@app.route("/locations")
+def locations_page():
+    locations = load_json()
+    return render_template("locations.html", locations=locations)
 
 
 if __name__ == '__main__':
