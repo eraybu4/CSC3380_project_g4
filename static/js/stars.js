@@ -10,7 +10,7 @@ const starTotal = Number(document.getElementById("starAmount").value);
     e.preventDefault();
 
 
-for (let i = 0; i <= 17; i++) {
+for (let i = 1; i <= 17; i++) {
 
     const starElement = document.getElementById("star" + i);
     if (starTotal >= i) {
@@ -23,4 +23,5 @@ for (let i = 0; i <= 17; i++) {
 
 
 });
+
 
